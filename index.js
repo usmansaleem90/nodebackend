@@ -109,7 +109,11 @@ app.use(cors());
 
 // Parse JSON request bodies
 app.use(express.json());
-  
+
+  app.use("/" ,( req, res)=>{
+   res.json({message:"Hello, world!"});
+  })
+
 
   const generationConfig = {
     temperature: 0.9,
