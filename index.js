@@ -114,6 +114,15 @@ app.use(express.json());
    res.json({message:"Hello, world!"});
   })
 
+const convertToHtml = (plainText) => {
+    // Replace **bold text** with <strong>bold text</strong>
+    let htmlText = plainText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  
+    // Replace newlines (\n) with <br> to maintain line breaks
+    htmlText = htmlText.replace(/\n/g, '<br>');
+  
+    return htmlText;
+  };
 
   const generationConfig = {
     temperature: 0.9,
@@ -156,12 +165,14 @@ app.use(express.json());
         },
       ],
     });
-  
-    const result = await chatSession.sendMessage(userInput);
-    console.log(result.response.text());
+  const result = await chatSession.sendMessage(userInput);
+    const sorted = convertToHtml(result.response.text())
+    console.log(convertToHtml(result.response.text()));
+    // const formattedResponse = `<b>${result.split('\n\n')[0]}</b><br><br>${responseText.split('\n\n')[1]}`; // Assuming the first line is the heading
+
     
     
-    return res.status(200).json({ message: result.response.text() });
+    return res.status(200).json({ message: sorted });
 
 
   });
