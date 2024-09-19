@@ -138,32 +138,7 @@ const convertToHtml = (plainText) => {
       generationConfig,
    // safetySettings: Adjust safety settings
    // See https://ai.google.dev/gemini-api/docs/safety-settings
-      history: [
-        {
-          role: "user",
-          parts: [
-            {text: "Look at this sequence of three shapes. What shape should come as the fourth shape? Explain your reasoning with detailed descriptions of the first shapes."},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "The fourth shape should be a hexagon. \n\nThe sequence starts with a triangle (3 sides), followed by a square (4 sides), and then a pentagon (5 sides).  The pattern is to add one side to the previous shape. \n"},
-          ],
-        },
-        {
-          role: "user",
-          parts: [
-            {text: "how is pm of pakistan"},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "The Prime Minister of Pakistan is the chief executive of the Government of Pakistan. The prime minister is appointed by the President of Pakistan, with the approval of the National Assembly. The prime minister is responsible for running the government and implementing its policies.\n\nThe current Prime Minister of Pakistan is Shehbaz Sharif. He was elected on April 11, 2022, after a vote of no confidence in the previous Prime Minister, Imran Khan.\n\nThe Prime Minister of Pakistan has a number of powers and responsibilities, including:\n\n* Appointing and dismissing cabinet ministers\n* Advising the President on matters of government policy\n* Representing Pakistan at international summits and meetings\n* Commanding the armed forces\n\nThe Prime Minister of Pakistan is also the leader of the majority party in the National Assembly. The prime minister's term of office is five years, or until the National Assembly is dissolved.\n\nThe Prime Minister of Pakistan is a powerful position, and the holder of the office has a significant impact on the country's politics and economy.\n\nHere are some of the challenges facing the Prime Minister of Pakistan:\n\n* Economic instability: Pakistan has a large budget deficit and a high level of public debt. The prime minister must find ways to reduce spending and increase revenue without harming the economy.\n* Political instability: Pakistan has a history of political instability, and the prime minister must work to build consensus and maintain stability.\n* Security challenges: Pakistan faces a number of security challenges, including terrorism, sectarian violence, and border disputes with India. The prime minister must work to ensure the security of the country.\n* Corruption: Corruption is a major problem in Pakistan, and the prime minister must work to reduce corruption and improve transparency.\n\nDespite these challenges, the Prime Minister of Pakistan is a key figure in the country's politics and economy. The prime minister has the power to make a real difference in the lives of the Pakistani people."},
-          ],
-        },
-      ],
+      history: [],
     });
   const result = await chatSession.sendMessage(userInput);
     const sorted = convertToHtml(result.response.text())
