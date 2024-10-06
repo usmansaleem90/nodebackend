@@ -99,7 +99,7 @@ import cors from 'cors';
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.0-pro",
+    model: "gemini-1.5-pro-002",
   });
   // Initialize the app and set the port
 const app = express();
